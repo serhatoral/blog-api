@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public Optional<User> findById(@RequestParam int id){
+    public Optional<User> findUserById(@RequestParam int id){
         return userService.findById(id);
     }
 }
