@@ -58,4 +58,7 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private List<PostMeta> postMetas;
+
+    @OneToMany(mappedBy = "post")
+    private List<PostComment> postComments;
 }

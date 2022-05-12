@@ -9,9 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -50,5 +52,14 @@ public class User {
 
     @OneToMany(mappedBy = "author")
     private List<Post> posts;
+
+    /*
+    @OneToMany(mappedBy = "author")
+    private List<PostComment> userComments;*/
+
+    @OneToMany
+    @JoinColumn(name = "author_id")
+    @JsonIgnore
+    private List<PostComment> userComments;
 
 }
