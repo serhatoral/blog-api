@@ -1,5 +1,6 @@
 package dev.blogapi.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,15 @@ public class UserController {
     @GetMapping("/user-summary")
     public UserInfoSummaryDto findUserSummaryById(@RequestParam int id){
         return userService.findUserSummaryDtoById(id);
+    }
+
+    @GetMapping("/get-user-summary")
+    public List<UserInfoSummaryDto> findUserSummaryByName(@RequestParam String name){
+        return userService.findUserSummaryByName(name);
+    }
+
+    @GetMapping("/search-user-summary")
+    public List<UserInfoSummaryDto> findUserSummaryByNameContains(@RequestParam String name){
+        return userService.findUserSummaryByNameContains(name);
     }
 }

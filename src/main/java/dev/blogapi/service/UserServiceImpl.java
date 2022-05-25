@@ -1,5 +1,6 @@
 package dev.blogapi.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,18 @@ public class UserServiceImpl implements UserService{
         );
 
         return userSummary;
+    }
+
+    @Override
+    public List<UserInfoSummaryDto> findUserSummaryByName(String userName) {
+        
+        return userRepository.findUserSummaryByName(userName);
+    }
+
+    @Override
+    public List<UserInfoSummaryDto> findUserSummaryByNameContains(String userName) {
+        
+        return userRepository.findUserSummaryByNameContains(userName);
     }
 
 }
